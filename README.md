@@ -1,2 +1,23 @@
-# x86-64-assembly
-Learning Assembly x86-64
+# x86-64 Assembly
+
+Small programs I write by hand while learning x86-64 assembly on Linux.
+
+The rules I'm following: Intel syntax, assembled with NASM (the Netwide Assembler), linked with `ld`, and no C library. Every program talks to the Linux kernel directly through the `syscall` instruction.
+
+## Programs
+
+- `class1.asm` - exits with a status code. The smallest program Linux will run: an entry point and the exit syscall.
+- `class2.asm` - prints "Hello, World". Uses the write syscall and lets the assembler compute the string's length (`$ - message`) instead of hardcoding it.
+- `class3.asm` - prints a row of stars with a counted loop. The check runs at the top of the loop, so a count of zero prints an empty line instead of looping forever.
+
+## Building
+
+Tested on Kali Linux, x86-64.
+
+    nasm -felf64 class2.asm && ld class2.o -o class2 && ./class2
+
+Check the exit status with `echo $?`.
+
+## Background
+
+I've written AVR assembly before, for an ATmega2560 robot, and I've read a lot of x86-64 while solving capture-the-flag challenges (buffer overflows, return-oriented programming). This repo goes the other direction: writing it from scratch.
