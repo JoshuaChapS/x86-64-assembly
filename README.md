@@ -11,6 +11,7 @@ The rules I'm following: Intel syntax, assembled with NASM (the Netwide Assemble
 - `class3.asm` - prints a row of stars with a counted loop. The check runs at the top of the loop, so a count of zero prints an empty line instead of looping forever.
 - `class4.asm` - reads what the user types and prints it back. Uses the read syscall into a 64-byte buffer and writes back only the bytes actually read.
 - `class5.asm` - prints two different strings by calling one `print` routine twice, using `call`/`ret`.
+- `class6.asm` - same as class5, but finds its strings with RIP-relative addressing (`lea reg, [rel label]`) instead of hardcoded addresses, so it would still work if loaded somewhere else in memory (e.g. with ASLR/PIE). Confirmed with `objdump -Mintel -d`.
 
 ## Building
 
