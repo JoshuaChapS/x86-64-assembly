@@ -10,12 +10,13 @@ The rules I'm following: Intel syntax, assembled with NASM (the Netwide Assemble
 - `class2.asm` - prints "Hello, World". Uses the write syscall and lets the assembler compute the string's length (`$ - message`) instead of hardcoding it.
 - `class3.asm` - prints a row of stars with a counted loop. The check runs at the top of the loop, so a count of zero prints an empty line instead of looping forever.
 - `class4.asm` - reads what the user types and prints it back. Uses the read syscall into a 64-byte buffer and writes back only the bytes actually read.
+- `class5.asm` - prints two different strings by calling one `print` routine twice, using `call`/`ret`.
 
 ## Building
 
 Tested on Kali Linux, x86-64.
 
-    nasm -felf64 class2.asm && ld class2.o -o class2 && ./class2
+    nasm -felf64 classn.asm && ld classn.o -o classn && ./classn
 
 Check the exit status with `echo $?`.
 
